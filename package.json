@@ -8,6 +8,8 @@
     "babel-loader": "^7.1.4",
     "babel-preset-stage-2": "^6.24.1",
     "dotenv": "^5.0.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4",
