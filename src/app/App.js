@@ -36,13 +36,20 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Instagram Image Slider</h1>
         </header>
-        <p>{console.log(this.state.photos)}</p>
         <button
-         type='button'
-         onClick={this.requestPhotos}
-         >
-         Get Photos
+        type='button'
+        onClick={this.requestPhotos}
+        >
+        Get Photos
         </button>
+        {this.state.photos.map((photo, key) => {
+          return (
+            <div key={photo.id}>
+              <img src={photo.images.standard_resolution.url} alt={photo.caption} />
+            </div>
+          )
+        })}
+        <p>{console.log(this.state.photos)}</p>
       </div>
     );
   }
