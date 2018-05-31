@@ -32,6 +32,8 @@ class Gallery extends Component {
 
     return (
       <div className="photo-gallery">
+      <button onClick={this.previousImg}> Previous </button>
+      <button onClick={this.nextImg}> Next </button>
       {
         photos.map((photo, index) => {
           if(this.state.slideCount === index) {
