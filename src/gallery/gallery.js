@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './gallery.css';
 
+// TODO: make gallery a sliding gallery!
+
 class Gallery extends Component {
   render() {
     const { photos } = this.props;
