@@ -5,5 +5,6 @@ It has also being modified to insta-image-slider-package to be inserted into any
 
 ### Technologies:
 - React, via create-react-app
+- Instagram API
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)

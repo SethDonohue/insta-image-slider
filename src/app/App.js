@@ -15,6 +15,8 @@ class App extends Component {
     super(props);
     this.state = {
       photos: [],
+      // TODO: Add error State
+      // TODO: Add loading state for slow networks on image request
     }
     this.requestPhotos = this.requestPhotos.bind(this);
   }
@@ -44,6 +46,8 @@ class App extends Component {
         type='button'
         onClick={this.requestPhotos}>Get Photos</button>
         {/* TODO: Insert a form for image request count, form should also contain the above button */}
+        {/* TODO: Insert a modal to use for ERROR state */}
+        {/* TODO: Insert a modal to use for LOADING state */}
         <Gallery photos={this.state.photos} />
       </div>
     );
