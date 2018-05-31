@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const apiUrl = `https://api.instagram.com/v1/users/self/media/recent/`;
 const token = `${process.env.REACT_APP_IG_TOKEN}`;
-const count = '10';
+const count = '100';
 
 class App extends Component {
   constructor(props) {
@@ -19,6 +19,11 @@ class App extends Component {
       // TODO: Add loading state for slow networks on image request
     }
     this.requestPhotos = this.requestPhotos.bind(this);
+  }
+
+
+  componentWillMount() {
+    this.requestPhotos();
   }
 
   requestPhotos() {
@@ -42,9 +47,6 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Instagram Image Slider</h1>
         </header>
-        <button
-        type='button'
-        onClick={this.requestPhotos}>Get Photos</button>
         {/* TODO: Insert a form for image request count, form should also contain the above button */}
         {/* TODO: Insert a modal to use for ERROR state */}
         {/* TODO: Insert a modal to use for LOADING state */}
