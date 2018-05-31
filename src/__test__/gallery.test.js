@@ -1,5 +1,5 @@
 import React from 'react';
-import { configure, mount, shallow } from 'enzyme';
+import { configure, mount, shallow, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Gallery from '../gallery/gallery';
 
@@ -13,7 +13,7 @@ configure({ adapter: new Adapter() });
 //   });
 // });
 
-describe('A suite', function () {
+describe('Gallery Component:', function () {
   it('should render without throwing an error', function () {
     expect(shallow(<Gallery photos={[]}/>).contains(<div className="photo-gallery"></div>)).toBe(true);
   });
@@ -22,11 +22,11 @@ describe('A suite', function () {
     expect(shallow(<Gallery photos={[]}/>).is('.photo-gallery')).toBe(true);
   });
 
-  // it('should mount in a full DOM', function () {
-  //   expect(mount(<Foo />).find('.foo').length).toBe(1);
-  // });
+  it('should mount in a full DOM', function () {
+    expect(mount(<Gallery photos={[]} />).find('.photo-gallery').length).toBe(1);
+  });
 
-  // it('should render to static HTML', function () {
-  //   expect(render(<Foo />).text()).toEqual('Bar');
-  // });
+  it('should render to static HTML', function () {
+    expect(render(<Gallery photos={[]} />).text()).toEqual('');
+  });
 });
