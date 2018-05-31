@@ -6,7 +6,7 @@ import './App.css';
 // be sure you have an env file at the root of this project with your token saved as REACT_APP_IG_TOKEN
 require('dotenv').config();
 
-const apiUrl = `https://api.instagram.com/v1/users/self/media/recent/`
+const apiUrl = `https://api.instagram.com/v1/users/self/media/recent/`;
 const token = `${process.env.REACT_APP_IG_TOKEN}`;
 const count = '10';
 
@@ -28,6 +28,8 @@ class App extends Component {
       });
     })
     .catch(error => {
+      // TODO: Show warning message to user depending on the type of error,
+      // can use error state to show modal if there is an error
       console.error('__REQUEST ERROR___:', error);
     });
   }
@@ -41,6 +43,7 @@ class App extends Component {
         <button
         type='button'
         onClick={this.requestPhotos}>Get Photos</button>
+        {/* TODO: Insert a form for image request count, form should also contain the above button */}
         <Gallery photos={this.state.photos} />
       </div>
     );
