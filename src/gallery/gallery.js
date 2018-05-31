@@ -6,7 +6,7 @@ class Gallery extends Component {
     const { photos } = this.props;
 
     return (
-      <div id="photos-gallery">
+      <div className="photo-gallery">
       {
         photos.map((photo, key) => {
           return (
