@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './gallery.css';
 
-// TODO: make gallery a sliding gallery!
-
 class Gallery extends Component {
   constructor(props){
     super(props);
@@ -37,7 +35,6 @@ class Gallery extends Component {
       {
         photos.map((photo, index) => {
           if(this.state.slideCount === index) {
-            console.log('Current Photo', photo, index);
             return (
               <div key={photo.id}>
                 <img src={photo.images.standard_resolution.url} alt={photo.caption} />

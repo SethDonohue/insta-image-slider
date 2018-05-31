@@ -15,8 +15,8 @@ class App extends Component {
     super(props);
     this.state = {
       photos: [],
-      // TODO: Add error State
-      // TODO: Add loading state for slow networks on image request
+      error: null,
+      loading: null,
     }
     this.requestPhotos = this.requestPhotos.bind(this);
   }
@@ -27,29 +27,45 @@ class App extends Component {
   }
 
   requestPhotos() {
-    console.log('Photo Request Sent.... Waiting for response...')
+    this.setState({
+      loading: true,
+    });
+
     superagent.get(`${apiUrl}?access_token=${token}&count=${count}`)
     .then(response => {
       this.setState({
         photos: response.body.data,
+        loading: false,
       });
     })
     .catch(error => {
-      // TODO: Show warning message to user depending on the type of error,
-      // can use error state to show modal if there is an error
+      this.setState({
+        loading: false,
+        error: error,
+      })
       console.error('__REQUEST ERROR___:', error);
     });
   }
 
   render() {
+    const loadingModalJSX = this.state.loading ? (<div id="loading-modal"> Loading... </div>): null;
+    const errorModalJSX = this.state.error ? (
+      <div id="error-modal">
+      <span>There was an error while requesting the images!</span>
+      <p>{this.state.error.toString()}</p>
+      </div>): null;
+
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Instagram Image Slider</h1>
         </header>
+        
         {/* TODO: Insert a form for image request count, form should also contain the above button */}
         {/* TODO: Insert a modal to use for ERROR state */}
         {/* TODO: Insert a modal to use for LOADING state */}
+        {loadingModalJSX}
+        {errorModalJSX}
         <Gallery photos={this.state.photos} />
       </div>
     );
