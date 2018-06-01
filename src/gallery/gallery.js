@@ -30,18 +30,18 @@ class Gallery extends Component {
     const { photos } = this.props;
     
     const previousJSX = this.state.slideCount > 0 ? (
-      <button id="button-previous" onClick={this.previousImg}> Previous </button>
+      <button id="button-previous" className="gallery-button" onClick={this.previousImg}> Previous </button>
     ): null;
 
     const nextJSX = this.state.slideCount < 32 ? (
-      <button id="button-next" onClick={this.nextImg}> Next </button>
+      <button id="button-next" className="gallery-button" onClick={this.nextImg}> Next </button>
     ): null;
 
     return (
       <div className="photo-gallery">
+      <div id="img-container">
       {previousJSX}
       {nextJSX}
-      <div id="img-container">
         {photos.map((photo, index) => {
           if(this.state.slideCount === index) {
             return (
