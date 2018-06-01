@@ -1,1 +1,27 @@
-/*  */
+/* * {
+  border: solid 0.5px red;
+} */
+
+.photo-gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: flex-end;
+  align-items: center;
+}
+
+#button-previous {
+  /* position: absolute; */
+  /* z-index: 1; */
+  /* top: 50%; */
+  /* justify-self: flex-start; */
+  /* align-self: center; */
+}
+
+#img-container {
+  max-width: 642px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}

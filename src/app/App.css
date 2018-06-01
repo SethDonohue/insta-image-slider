@@ -1,12 +1,5 @@
-* {
-  border: solid 0.5px red;
-}
-
 .App {
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-content: center;
 }
 
 .App-header {
